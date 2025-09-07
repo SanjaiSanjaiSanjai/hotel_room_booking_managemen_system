@@ -23,7 +23,7 @@ export async function getRooms(req: Request, res: Response) {
 
 export async function createRooms(req: Request, res: Response) {
     try {
-        const { room_number, room_type, is_available } = req.body;
+        const { room_number, room_type, is_available, hotelsId } = req.body;
         const price = getRoomDetails(room_type)
         if (price === 0) {
             return sendErrorResponse(res,MESSAGES.ROOMS_NOT_AVAILABLE)
@@ -34,6 +34,7 @@ export async function createRooms(req: Request, res: Response) {
         create_room.room_type = room_type;
         create_room.price_per_night = price;
         create_room.is_available = is_available;
+        create_room.hotels = hotelsId;
 
         const savedRoom = await roomRepository.save(create_room)
         return successResponse(res,savedRoom,MESSAGES.DATA_SUCCESS)

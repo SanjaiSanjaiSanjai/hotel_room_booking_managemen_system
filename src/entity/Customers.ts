@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column ,ManyToOne,OneToMany,CreateDateC
 import { Hotels } from "./Hotels";
 import { Bookings } from "./Bookings";
 import { Payments } from "./Payments";
+import { Rooms } from "./Rooms";
 
 @Entity()
 export class Customers {
@@ -46,4 +47,7 @@ export class Customers {
 
     @OneToMany(()=> Payments,(payment) => payment.customers)
     payments!: Payments[]
+
+    @ManyToOne(() => Rooms,(room) => room.customers)
+    rooms!: Rooms
 } 

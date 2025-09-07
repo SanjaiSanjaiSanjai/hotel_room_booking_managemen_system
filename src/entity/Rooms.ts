@@ -2,6 +2,7 @@ import {Entity,PrimaryGeneratedColumn,Column,ManyToOne,OneToMany,CreateDateColum
 import { Hotels } from "./Hotels";
 import { Bookings } from "./Bookings";
 import { Rooms_Type } from "../enums/roomsEnums";
+import { Customers } from "./Customers";
 
 @Entity()
 export class Rooms {
@@ -34,4 +35,7 @@ export class Rooms {
 
     @OneToMany(() => Bookings,(booking) => booking.rooms)
     bookings!: Bookings[]
+
+    @OneToMany(() => Customers,(customer) => customer.rooms)
+    customers!: Customers[]
 }
