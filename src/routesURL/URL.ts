@@ -22,3 +22,8 @@ export const CUSTOMER_URL = {
     get_customer_is_active: "/customer/getdetails/active",
     get_single_customer: "/customer/getdetails/:status"
 }
+
+export const PAYMENT_URL = {
+    pay_amount: "/payment/pay",
+    get_payment_details: "/payment/transaction/:status"
+}

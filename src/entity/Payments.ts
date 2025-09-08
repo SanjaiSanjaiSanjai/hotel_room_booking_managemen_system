@@ -23,7 +23,7 @@ export class Payments {
     })
     payment_method!: Payments_Method_Status 
 
-    @Column({type:"timestamp"})
+    @CreateDateColumn({type:"timestamp"})
     transaction_date!: Date
 
     @CreateDateColumn({type:"timestamp"})

@@ -18,7 +18,7 @@ export async function booking(req: Request,res: Response) {
         check_out_date: check_out_date,
         status: status,
         num_of_guests: num_of_guests,
-        rooms: is_customer || undefined,
+        rooms: is_customer || undefined,// changed soon...
         customers: customers
 
     })

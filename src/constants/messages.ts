@@ -6,5 +6,8 @@ export const MESSAGES = {
     SERVER_FETCH_ERROR: "Internal server error",
     DATA_SUCCESS : "success",
     NOT_CREATE_DB: "Not created in database",
-    IS_ACTIVE: "is_active is undefined"
+    IS_ACTIVE: "is_active is undefined",
+    PAYMENT_STATUS_TYPE: "payment status is not expact type",
+    PAYMENT_METHOD: "this payment method is not available",
+    PAYMENT_STATUS: "this status details is not found"
 }
