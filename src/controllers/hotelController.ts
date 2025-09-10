@@ -3,13 +3,12 @@ import { hotelRepository } from "../repository/repository";
 import { Hotels } from "../entity/Hotels";
 import { successResponse, sendErrorResponse } from "../handleResponse/response";
 import { MESSAGES } from "../constants/messages";
+import { validateCondition } from "../utility/utility";
 
 export async function getAllHotels(req: Request, res: Response) {
     try {
         const hotels = await hotelRepository.find();
-        if (!hotels) {
-            return sendErrorResponse(res, MESSAGES.HOTEL_NOT_FOUND)
-        }
+        validateCondition(hotels,MESSAGES.HOTEL_NOT_FOUND)
         return successResponse(res,hotels,MESSAGES.DATA_SUCCESS)
     } catch (error) {
         console.error('Error fetching hotels:', error);

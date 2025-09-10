@@ -5,14 +5,13 @@ import { Bookings } from "../entity/Bookings";
 import { MESSAGES } from "../constants/messages";
 import { Booking_Status } from "../enums/bookingEnums";
 import { Customers } from "../entity/Customers";
+import { validateCondition } from "../utility/utility";
 
 export async function booking(req: Request,res: Response) {
     const {check_in_date,check_out_date,status,num_of_guests,customers} = req.body;
 
     const is_customer: Customers | null  = await customerRepository.findOne({where:{id:customers}})
-    if (!is_customer) {
-        return sendErrorResponse(res,MESSAGES.NO_CUSTOMER)
-    }
+    validateCondition(is_customer,MESSAGES.NO_CUSTOMER)
     const booking: Bookings | null = await bookingRepository.create({
         check_in_date: check_in_date,
         check_out_date: check_out_date,
@@ -31,9 +30,6 @@ export async function getBookingDetails(req: Request,res: Response) {
     const get_booking_details = await bookingRepository.find({
         where: {status: status as Booking_Status}
     })
-
-    if (!get_booking_details) {
-        return sendErrorResponse(res,MESSAGES.NO_BOOKING)
-    }
+    validateCondition(get_booking_details,MESSAGES.NO_BOOKING)
     return successResponse(res,get_booking_details,MESSAGES.DATA_SUCCESS)
 }

@@ -20,7 +20,8 @@ export const CUSTOMER_URL = {
     customer_details: "/customer/details",
     get_customer_details: "/customer/getdetails",
     get_customer_is_active: "/customer/getdetails/active",
-    get_single_customer: "/customer/getdetails/:status"
+    get_single_customer: "/customer/getdetails/:status",
+    update_customer_active: "/customer/active/:id"
 }
 
 export const PAYMENT_URL = {

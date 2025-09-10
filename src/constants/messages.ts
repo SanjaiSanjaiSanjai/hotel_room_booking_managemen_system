@@ -9,5 +9,6 @@ export const MESSAGES = {
     IS_ACTIVE: "is_active is undefined",
     PAYMENT_STATUS_TYPE: "payment status is not expact type",
     PAYMENT_METHOD: "this payment method is not available",
-    PAYMENT_STATUS: "this status details is not found"
+    PAYMENT_STATUS: "this status details is not found",
+    NOT_UPDATE: "Not updated"
 }
